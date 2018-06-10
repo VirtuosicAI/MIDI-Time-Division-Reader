@@ -70,10 +70,10 @@ namespace MIDI_Time_Division_Reader
                     if (BitConverter.IsLittleEndian)
                         Array.Reverse(timeDivision);
 
-                    int timeDivisionInt = BitConverter.ToUInt16(timeDivision, 0);
-                    int ticksPerBar = (1920 * timeDivisionInt) / 480;
+                    int ticksPerQuarter = BitConverter.ToUInt16(timeDivision, 0);
+                    int ticksPerBar = ticksPerQuarter * 4;
 
-                    MessageBox.Show(this, Path.GetFileName(MIDIFileBox.Text) + "\n\nHexdecimal String: " + timeDivisionString + "\nFirst Byte Value: " + firstByteInt.ToString() + "\nSecond Byte Value: " + secondByteInt.ToString() + "\nInteger Value: " + timeDivisionInt.ToString() + "\n\nTicks Per Bar: " + ticksPerBar.ToString(), "Result");
+                    MessageBox.Show(this, Path.GetFileName(MIDIFileBox.Text) + "\n\nHexdecimal String: " + timeDivisionString + "\nFirst Byte Value: " + firstByteInt.ToString() + "\nSecond Byte Value: " + secondByteInt.ToString() + "\n\nTicks Per Quarter Note: " + ticksPerQuarter.ToString() + "\nTicks Per Bar: " + ticksPerBar.ToString(), "Result");
                 }
             }
             catch (Exception ex)
