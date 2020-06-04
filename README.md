@@ -1,5 +1,7 @@
 # MIDI Time Division Reader
 
+![Program Screenshot](program_screenshot.png)
+
 Overview
 ------------
 
